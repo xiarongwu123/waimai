@@ -3,7 +3,7 @@
        <section class="msite">
         <!--首页头部-->
        
-          <HeaderTop title="江西吉安">
+          <HeaderTop :title="address.city">
             <span class="header_search" slot="left">
               <i class="iconfont icon-sousuo"></i>
             </span>
@@ -127,6 +127,7 @@
 </template>
 
 <script>
+import {mapState}from 'vuex'
 import HeaderTop from '../../components/headerTop/headerTop'
 import ShopList from '../../components/shopList/shopList'
 import Swiper from 'swiper'
@@ -142,7 +143,11 @@ export default {
         el: '.swiper-pagination',
     },  
    
-  })        
+  })
+       
+  },
+  computed:{
+      ...mapState(['address'])
   },
     components:{
       HeaderTop,
